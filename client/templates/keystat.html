@@ -31,14 +31,13 @@
   </thead>
   <tbody>
     <tr ng-class="{ 'bg-success': emp.Stat=='DONE', 'bg-warning': emp.Stat=='M50', 'bg-danger': emp.Stat=='L50'  }"  ng-repeat="emp in key.allEmpRDP | fromLocation:key.srchLoc">
-      <th scope="row" >{{emp.empId}}</th>
+      <th scope="row" >{{emp.empId}}<a href="/keyOne/{{emp.empId}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a></th>
       <th scope="col">{{emp.name}}</th>
       <th scope="col">{{emp.mandCount}}</th>
       <th scope="col">{{emp.compCount}}</th>
       <th scope="col"class="hidden-xs">{{emp.enCount}}</th>
       <th scope="col" class="hidden-xs">{{emp.resCount}}</th>
       <th scope="col" class="hidden-xs">{{emp.TBDCount}}</th>
-      <th scope="col"><a href="/keyOne/{{emp.empId}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a></th>
         
     </tr>
   </tbody>
