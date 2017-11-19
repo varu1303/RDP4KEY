@@ -1,0 +1,226 @@
+/*To get ng-cloak working!*/
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
+  display: none !important;
+}
+
+/*Universal*/
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+/*Angular views */
+.view-animate.ng-enter {
+  transition:0.3s linear all;
+  opacity:0;
+}
+
+/* The finishing CSS styles for the enter animation */
+.view-animate.ng-enter.ng-enter-active {
+  opacity:1;
+}
+
+
+/* template/home.html */
+
+/*
+.label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.7;
+    margin-bottom: 10px;
+    padding: 4px;
+    margin-left:5px;
+}
+*/
+
+.panel {
+  border-radius: 5px;
+}
+label {
+  font-weight: 300;
+}
+.panel-login {
+   border: none;
+/*  box-shadow: 0px 0px 49px 14px rgba(188,190,194,0.39);*/
+  }
+
+
+.panel-login>.panel-heading .tabs{
+  padding: 0;
+}
+.panel-login h2{
+  font-size: 20px;
+  font-weight: 300;
+  margin: 30px;
+}
+.panel-login>.panel-heading {
+  color: #848c9d;
+  background-color: #e8e9ec;
+  border-color: #fff;
+  text-align:center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom: 0px;
+  padding: 0px 15px;
+}
+.panel-login .form-group {
+  padding: 0 30px;
+}
+.panel-login>.panel-heading .login {
+  padding: 20px 30px;
+  border-bottom-left-radius: 5px;
+  color: white;
+  background-color: #2d3b55;
+}
+.panel-login>.panel-heading .register {
+  padding: 20px 30px;
+/*  background: #2d3b55;*/
+  border-bottom-right-radius: 5px;
+}
+.panel-login>.panel-heading a{
+  text-decoration: none;
+  color: #2d3b55;
+  font-weight: 700;
+  font-size: 16px;
+  transition: all 0.1s linear;
+}
+.panel-login>.panel-heading a#register-form-link {
+/*  color: #fff;*/
+  width: 100%;
+  text-align: center;
+}
+.panel-login>.panel-heading a#login-form-link {
+  width: 100%;
+  text-align: center;
+}
+
+.panel-login input[type="text"],.panel-login input[type="email"],.panel-login input[type="password"] {
+  height: 45px;
+  border: 0;
+  font-size: 16px;
+  transition: all 0.1s linear;
+  box-shadow: none;
+  border-bottom: 1px solid #e7e7e7;
+  border-radius: 0px;
+  padding: 6px 0px;
+}
+.panel-login input:hover,
+.panel-login input:focus {
+  outline:none;
+  box-shadow: none;
+  border-color: #ccc;
+}
+.btn-login {
+  background-color: #E8E9EC;
+  outline: none;
+  color: #2D3B55;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+.btn-login:hover,
+.btn-login:focus {
+  color: #fff;
+  background-color: #2D3B55;
+}
+.forgot-password {
+  text-decoration: underline;
+  color: #888;
+}
+.forgot-password:hover,
+.forgot-password:focus {
+  text-decoration: underline;
+  color: #666;
+}
+
+.btn-register {
+  background-color: #E8E9EC;
+  outline: none;
+  color: #2D3B55;
+  font-size: 14px;
+  height: auto;
+  font-weight: normal;
+  padding: 14px 0;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 0px;
+  box-shadow: none;
+}
+.btn-register:hover,
+.btn-register:focus {
+  color: #fff;
+  background-color: #2D3B55;
+}
+
+/*logout*/
+
+
+.logout {
+    margin-top: 10%;
+}
+
+/*profile*/
+
+.modal-form {
+    margin: 10px;
+}
+
+.keyhtm-head {
+    text-align: center;
+}
+
+
+.centerdetail ul li {
+    text-align: center;
+}
+
+.centerdetail ul {
+    list-style: none;
+}
+
+.centerdetail p {
+    text-align: center;
+}
+
+.theOne {
+    text-align: center;
+}
+
+.keyone p, .keyone h1 {
+    text-align: center;
+}
+
+.filter-button {
+    text-align: center;
+    padding: 8px;
+    margin: 5px 0 5px 0;
+}
+
+.admin-filter {
+    text-align: center;
+}
+
+
+
+
+
+
+

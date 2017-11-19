@@ -1,0 +1,51 @@
+<div class="keyhtm-head">
+    <h1>KEY SUMMARY</h1>
+</div>
+<div class="admin-filter" ng-show="key.showfilter">
+     <div style="text-align: center; margin:5px;">
+        <label>CHOOSE LOCATION</label>
+        <select name="singleSelect" ng-model="key.srchLoc" class="selectpicker">
+          <option value="All">ALL</option>
+          <option value="Pune">PUN</option>
+          <option value="Chennai">CHN</option>
+          <option value="Hyderabad">HYD</option>
+          <option value="other">OTHER</option>
+        </select>
+      </div>
+</div>
+<div class="filter-button">
+    <button class="btn btn-primary" ng-click="key.toggleFilter()">{{key.filterbtnText}}</button>
+</div>
+
+<table class="table table-sm">
+  <thead>
+    <tr>
+      <th scope="col">EmployeeID</th>
+      <th scope="col">Name</th>
+      <th scope="col">Mandatory</th>
+      <th scope="col">Completed</th>
+      <th scope="col" class="hidden-xs">Enrolled</th>
+      <th scope="col" class="hidden-xs">Result Pending</th>
+      <th scope="col" class="hidden-xs">TBD</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-class="{ 'bg-success': emp.Stat=='DONE', 'bg-warning': emp.Stat=='M50', 'bg-danger': emp.Stat=='L50'  }"  ng-repeat="emp in key.allEmpRDP | fromLocation:key.srchLoc">
+      <th scope="row" >{{emp.empId}}</th>
+      <th scope="col">{{emp.name}}</th>
+      <th scope="col">{{emp.mandCount}}</th>
+      <th scope="col">{{emp.compCount}}</th>
+      <th scope="col"class="hidden-xs">{{emp.enCount}}</th>
+      <th scope="col" class="hidden-xs">{{emp.resCount}}</th>
+      <th scope="col" class="hidden-xs">{{emp.TBDCount}}</th>
+      <th scope="col"><a href="/keyOne/{{emp.empId}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a></th>
+        
+    </tr>
+  </tbody>
+</table>
+<!--
+<div ng-show="key.keyAllError"  class="alert alert-success">
+    <h1>SESSION INVALID! Login Again.</h1>
+</div>
+-->
+    

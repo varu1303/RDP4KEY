@@ -1,0 +1,1 @@
+module.exports = 'RDP4KEY';

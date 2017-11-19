@@ -1,0 +1,114 @@
+<div class="container"  id="clip">
+   <div class="row" id="clip-row">
+    <div class="col-md-6 col-md-offset-3">
+      <div class="panel panel-login">
+          
+        <div class="panel-body">
+          <div class="row">
+            <div class="col-lg-12">
+              <form name="logform" id="login-form" role="form" style="display: block;" ng-submit="user.log()">
+                <h1><strong>LOGIN</strong></h1>
+                  <div class="form-group">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Employee ID" value="" ng-model="user.l.logEmpID" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="user.l.logPass" required>
+                  </div>
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">    
+                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+                
+                
+              <form name="regform" id="register-form" role="form" style="display: none;" ng-submit="user.register()">
+                <h1><strong>REGISTER</strong></h1>
+                  <div class="form-group">
+                    <input type="text" name="empID" id="empID" tabindex="1" class="form-control" placeholder="Employee ID" value="" ng-model="user.u.userEmpId" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Name" value="" ng-model="user.u.userName" required>
+                  </div>
+                  <div class="form-group">
+                    <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" ng-model="user.u.userEmail" required>
+                  </div>
+                  <div class="alert alert-warning" ng-show="regform.$error.email && !regform.email.$pristine">
+                    <strong>NOTE!</strong> Is not a valid EMAIL.
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password" ng-model="user.u.userPass" ng-minlength="6" ng-maxlength="10" required>
+                  </div>
+                  <div class="alert alert-warning" ng-show="regform.$error.minlength || regform.$error.maxlength && !regform.password.$pristine">
+                    <strong>NOTE!</strong> Password should be between 6 and 10 characters.
+                  </div>
+                  <div class="form-group">
+                    <input type="password" name="confirmpassword" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" ng-model="user.u.userConPass" required>
+                  </div>
+                  <div class="alert alert-warning" ng-show="user.u.userPass !== user.u.userConPass && !regform.confirmpassword.$pristine">
+                    <strong>NOTE!</strong> Does not match the original password.
+                  </div>
+                  
+                  <div style="text-align: center; margin:5px;">
+                    <label>SELECT YOUR TECHNOLOGY</label>
+                    <select name="singleSelect" ng-model="user.u.techSelect" class="selectpicker">
+                      <option value="Mainframe">Mainframe</option>
+                      <option value=".NET">.NET</option>
+                      <option value="Java">Java</option>
+                      <option value="others">Others</option>
+                    </select>
+                  </div>
+                  
+                 <div style="text-align: center; margin:5px;">
+                    <label>SELECT YOUR LOCATION</label>
+                    <select name="singleSelect" ng-model="user.u.locSelect" class="selectpicker">
+                      <option value="Pune">PUN</option>
+                      <option value="Chennai">CHN</option>
+                      <option value="Hyderabad">HYD</option>
+                      <option value="other">OTHER</option>
+                    </select>
+                  </div>
+                  
+                  <div class="form-group">
+                    <div class="row">
+                      <div class="col-sm-6 col-sm-offset-3">
+                        <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now" ng-disabled="regform.$invalid || user.u.userPass !== user.u.userConPass">
+                      </div>
+                    </div>
+                  </div>
+              </form>
+            </div>
+          </div>
+        </div>
+          
+        <div class="alert alert-success" ng-show="user.logSuccess">
+            <strong>Logged In!</strong>
+        </div>
+        <div class="alert alert-warning" ng-show="user.logError">
+            <strong>Incorrect Credentials!</strong>
+        </div>
+        <div class="alert alert-success" ng-show="user.registerSuccess">
+            <strong>Registered!</strong>
+        </div>
+        <div class="alert alert-warning" ng-show="user.registerError">
+            <strong>NOTE!</strong> REGISTRATION FAILED/ Username and Email has to be UNIQUE!.
+        </div>
+          
+          
+        <div class="panel-heading">
+          <div class="row">
+            <div class="col-xs-6 tabs">
+              <a href="#" id="login-form-link" ng-click="user.reset()"><div class="login">LOGIN</div></a>
+            </div>
+            <div class="col-xs-6 tabs">
+              <a href="#" id="register-form-link"><div class="register" ng-click="user.reset()">REGISTER</div></a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

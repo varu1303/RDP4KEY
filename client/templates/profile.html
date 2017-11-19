@@ -1,0 +1,90 @@
+<div class="container">
+  <div class="jumbotron">
+    <h1>Hi {{pro.userLogged.name}}!</h1>
+    <p>Location: {{pro.userLogged.location}} | Technology: {{pro.userLogged.tech}}</p>
+    <p>Manage your RDP status here</p>
+    <button class="btn btn-lg btn-primary" data-toggle="modal" data-target="#myRDP">ADD A NEW RDP!</button>
+</div>
+    
+<!-- Modal -->
+<div id="myRDP" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form class="modal-form" ng-submit="pro.newRDP()">
+          <div class="form-group">
+            <label for="email">RDP</label>
+            <input type="text" class="form-control" id="email" ng-model="pro.RDPname">
+          </div>
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-primary" ng-disabled="pro.rdpNotEntered()">Submit</button>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+
+<!-- Delete Modal -->
+<div id="deleteRDP" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+        <form class="modal-form" ng-submit="pro.delRDP(rdp._id)">
+          <div style="text-align: center;">
+            <button type="submit" class="btn btn-danger">Confirm Deletion!</button>
+          </div>
+        </form>
+    </div>
+
+  </div>
+</div>
+
+<div>
+    <h1 ng-show="pro.allRDP.length">Your RDP!</h1>
+    <h1 ng-hide="pro.allRDP.length">You have not added any RDP yet!</h1>
+    <table ng-show="pro.allRDP.length" class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">RDP</th>
+          <th scope="col">STATUS</th>
+<!--          <th scope="col">SCHEDULED/APPEARED ON</th>-->
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="rdp in pro.allRDP">
+          <th scope="row">{{rdp.rdpName}}</th>
+          <td><select name="singleSelect" ng-model="rdp.rdpStatus" class="selectpicker" ng-change="pro.saveChange(rdp._id,rdp.rdpStatus)">
+                      <option value="Enrolled">Enrolled</option>
+                      <option value="Result Pending">Result Pending</option>
+                      <option value="Complete">Complete</option>
+                      <option value="TBD">TBD</option>
+                    </select>
+            </td>
+            <td  data-toggle="modal" data-target="#deleteRDP" ng-click="pro.toDelete(rdp._id)"><i class="fa fa-times" aria-hidden="true"></i></td>
+<!--          <td><input type="text" ng-model="rdp.date" ng-change="pro.savechange=true"></td>-->
+        </tr>
+       </tbody>
+    </table>
+    <div class="alert alert-success" ng-show="pro.statusChanged && pro.statusUpdated" class="view-animate">
+        <strong>RDP STATUS UPDATED!</strong>
+    </div>
+    <div class="alert alert-warning" ng-show="pro.statusChanged && !pro.statusUpdated" class="view-animate">
+        <strong>RDP STATUS BEING UPDATED....!</strong>
+    </div>
+    
+
+<!--
+    <div style="text-align: center; padding: 8px">
+        <button class="btn btn-primary" ng-if="pro.savechange" ng-click="pro.resaveRDP()">SAVE CHANGES</button>
+    </div>
+-->
+
+</div>
+    
+<!--
+<div ng-show="pro.errCatch"  class="alert alert-success">
+    <p>INVALID SESSION! Login again.</p>
+</div>-->

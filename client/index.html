@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html ng-app="MainApp" >
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="-">
+    <meta name="author" content="Varun">
+    <base href="/">
+
+    <title>-</title>
+
+    <!---Importing Font ---->
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <!-- Bootstrap minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- custom stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+
+  </head>
+  <body ng-controller="MainController as Main" ng-cloak>
+      
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">RDP | <i class="fa fa-key" aria-hidden="true" style="color='red';"></i></a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            <li ng-class="{active: Main.atLoc('/profile')}" ng-hide="Main.atHome()"><a href="/profile">{{userHeader}}</a></li>
+            <li ng-class="{active: Main.atLoc('/keystat')}" ng-hide="Main.atHome() || isNotAdmin"><a href="/keystat">KEY</a></li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li ng-class="{active: Main.atLoc('/logout')}" ng-hide="Main.atHome()"><a href="/logout">LOGOUT</a></li>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+      
+      
+    <div ng-view class="view-animate"></div>
+      
+      
+
+    <!---Importing Icons ---->
+    <script src="https://use.fontawesome.com/7d3906fbc4.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <!-- Jquery for home template -->
+    <script src="jquey/home$.js"></script>
+    <!--base64 for abot function in IE -->
+    <script src="jquey/base64.js"></script>
+    <!-- Angular CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.js"></script>
+    <!-- Angular route CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-route.js"></script>
+    <!--Angular Animate -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular-animate.min.js"></script>
+    <!---Custom JS file ---->
+    <script src="angular/app-ang.js"></script>
+    <script src="angular/route-ang.js"></script>
+    <script src="angular/controllers/userCtrl.js"></script>
+    <script src="angular/controllers/profileCtrl.js"></script>
+    <script src="angular/controllers/keyCtrl.js"></script>
+    <script src="angular/services/tokenService.js"></script>
+    <script src="angular/services/userService.js"></script>
+    <script src="angular/controllers/outCtrl.js"></script>
+    <script src="angular/controllers/keyoneCtrl.js"></script>
+
+  </body>
+</html>
+
+
+
+
+
