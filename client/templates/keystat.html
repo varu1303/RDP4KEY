@@ -20,10 +20,10 @@
 <table class="table table-sm">
   <thead>
     <tr>
-      <th scope="col">EmployeeID</th>
+      <th scope="col">Emp ID</th>
       <th scope="col">Name</th>
-      <th scope="col">Mandatory</th>
-      <th scope="col">Completed</th>
+      <th scope="col">Total</th>
+      <th scope="col">Complete</th>
       <th scope="col" class="hidden-xs">Enrolled</th>
       <th scope="col" class="hidden-xs">Result Pending</th>
       <th scope="col" class="hidden-xs">TBD</th>
@@ -31,7 +31,7 @@
   </thead>
   <tbody>
     <tr ng-class="{ 'bg-success': emp.Stat=='DONE', 'bg-warning': emp.Stat=='M50', 'bg-danger': emp.Stat=='L50'  }"  ng-repeat="emp in key.allEmpRDP | fromLocation:key.srchLoc">
-      <th scope="row" >{{emp.empId}}<a href="/keyOne/{{emp.empId}}"><i class="fa fa-info-circle" aria-hidden="true"></i></a></th>
+      <th scope="row" ><a href="/keyOne/{{emp.empId}}">{{emp.empId}}</a></th>
       <th scope="col">{{emp.name}}</th>
       <th scope="col">{{emp.mandCount}}</th>
       <th scope="col">{{emp.compCount}}</th>
